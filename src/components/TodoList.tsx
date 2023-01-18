@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Todo from "../models/Todo";
 import TodoItem from "./TodoItem";
 
-const Contents: React.FC<{
+const TodoList: React.FC<{
   items: Todo[];
   onRemoveTodo: (id: string) => void;
 }> = (props) => {
@@ -20,7 +20,7 @@ const Contents: React.FC<{
   );
 };
 
-export default Contents;
+export default TodoList;
 
 const Container = styled.div`
   padding: 0 35px;
