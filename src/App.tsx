@@ -17,9 +17,6 @@ const App = () => {
     window.confirm("정말 삭제하시겠습니까?")
       ? setTodos(newList)
       : todos.map(() => {});
-    // setTodos((prev) => {
-    //   return prev.filter((todo) => todo.id !== todoId);
-    // });
   };
 
   return (
