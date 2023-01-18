@@ -1,24 +1,31 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
 
 const NewTodo: React.FC<{ onAddTodo: (text: string) => void }> = (props) => {
   const textRef = useRef<HTMLInputElement>(null);
+  const [text, setText] = useState("");
 
   const addTodo = (event: React.FormEvent) => {
     event.preventDefault();
-    const result = textRef.current!.value;
-    if (result.trim().length === 0) {
+    // const result = textRef.current!.value;
+    if (text.trim().length === 0) {
       alert("내용을 입력해주세요.");
       return;
     }
-    props.onAddTodo(result);
+    props.onAddTodo(text);
+    setText("");
   };
 
   return (
     <Container>
       <Title>Todolist</Title>
       <Form onSubmit={addTodo}>
-        <InputText type="text" id="text" ref={textRef} />
+        <InputText
+          type="text"
+          id="text"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+        />
         <Btn>추가</Btn>
       </Form>
     </Container>
