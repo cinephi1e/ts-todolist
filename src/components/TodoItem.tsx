@@ -7,7 +7,7 @@ const TodoItem: React.FC<{ todo: string; onRemoveTodo: () => void }> = (
   return (
     <List>
       {props.todo}
-      <Btn onClick={props.onRemoveTodo}>del</Btn>
+      <Btn onClick={props.onRemoveTodo}>삭제</Btn>
     </List>
   );
 };

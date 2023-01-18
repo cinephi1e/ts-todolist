@@ -14,9 +14,13 @@ const App = () => {
   };
 
   const removeTodoHandler = (todoId: string) => {
-    setTodos((prev) => {
-      return prev.filter((todo) => todo.id !== todoId);
-    });
+    const newList = todos.filter((todo) => todo.id !== todoId);
+    window.confirm("정말 삭제하시겠습니까?")
+      ? setTodos(newList)
+      : todos.map(() => {});
+    // setTodos((prev) => {
+    //   return prev.filter((todo) => todo.id !== todoId);
+    // });
   };
 
   return (

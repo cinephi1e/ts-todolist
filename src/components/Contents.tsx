@@ -25,9 +25,3 @@ export default Contents;
 const Container = styled.div`
   padding: 0 35px;
 `;
-
-const List = styled.div`
-  margin: 20px 0;
-  padding-bottom: 15px;
-  border-bottom: 1px dashed;
-`;
