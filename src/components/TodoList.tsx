@@ -16,7 +16,7 @@ const TodoList: React.FC<{
           todo={item.todo}
           isDone={item.isDone}
           onRemoveTodo={props.onRemoveTodo.bind(null, item.id)}
-          onToggleTodo={props.onToggleTodo.bind(null, item.id, item.isDone)}
+          onToggleTodo={props.onToggleTodo.bind(null, item.id)}
         />
       ))}
     </Container>
