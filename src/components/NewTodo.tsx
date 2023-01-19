@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { TodosContext } from "../store/todos-context";
 import styled from "styled-components";
 
-const NewTodo: React.FC<{ onAddTodo: (text: string) => void }> = (props) => {
+const NewTodo: React.FC = () => {
+  const todosCtx = useContext(TodosContext);
   const [text, setText] = useState("");
 
   const addTodo = (event: React.FormEvent) => {
@@ -10,7 +12,7 @@ const NewTodo: React.FC<{ onAddTodo: (text: string) => void }> = (props) => {
       alert("내용을 입력해주세요.");
       return;
     }
-    props.onAddTodo(text);
+    todosCtx.addTodo(text);
     setText("");
   };
 
