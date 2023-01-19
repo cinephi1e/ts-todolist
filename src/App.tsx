@@ -19,10 +19,28 @@ const App = () => {
       : todos.map(() => {});
   };
 
+  const toggleTodoHandler = (todoId: string) => {
+    const newList = todos.map((todo) => {
+      if (todo.id === todoId) {
+        return {
+          ...todo,
+          isDone: !todo.isDone,
+        };
+      } else {
+        return { ...todo };
+      }
+    });
+    setTodos(newList);
+  };
+
   return (
     <Container>
       <NewTodo onAddTodo={addTodoHandler} />
-      <TodoList items={todos} onRemoveTodo={removeTodoHandler} />
+      <TodoList
+        items={todos}
+        onRemoveTodo={removeTodoHandler}
+        onToggleTodo={toggleTodoHandler}
+      />
     </Container>
   );
 };

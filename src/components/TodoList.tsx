@@ -6,6 +6,7 @@ import TodoItem from "./TodoItem";
 const TodoList: React.FC<{
   items: Todo[];
   onRemoveTodo: (id: string) => void;
+  onToggleTodo: (id: string) => void;
 }> = (props) => {
   return (
     <Container>
@@ -13,7 +14,9 @@ const TodoList: React.FC<{
         <TodoItem
           key={item.id}
           todo={item.todo}
+          isDone={item.isDone}
           onRemoveTodo={props.onRemoveTodo.bind(null, item.id)}
+          onToggleTodo={props.onToggleTodo.bind(null, item.id, item.isDone)}
         />
       ))}
     </Container>
